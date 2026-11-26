@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-26T00:00:00.000Z" agent="OpenAI Codex" version="24.7.17">
+  <diagram id="01-usecase" name="01 — Use Case: Жөндеуге өтінім беру">
+    <mxGraphModel dx="1280" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1280" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="customer" value="Клиент" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="330" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="tech" value="Шебер" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="330" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="submit" value="Өтінім беру" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="validate" value="Деректерді тексеру" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="320" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="track" value="Мәртебені бақылау" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="470" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="notify" value="Хабарлама алу" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="760" y="320" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="бастайды" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="customer" target="submit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="нөмірмен қарайды" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="customer" target="track">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="submit" target="validate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="дұрыс болса" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="validate" target="notify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="жаңа өтінім" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="tech" target="notify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+
