@@ -59,6 +59,22 @@ diploma-computer-repair/
 
 ## 5. Деректер қоры және архитектура
 
-5-жұмыстың ER және C4 диаграммалары, SQL файлдары төменде қосылады.
+### ER диаграммасы
+
+![Компьютер жөндеу жүйесінің ER диаграммасы](diagrams/05-er.png)
+
+Деректер қоры: [db/schema.sql](db/schema.sql), [db/queries.sql](db/queries.sql). SQLite сызбасында 9 мән, PK/FK, тексеру шектеулері және әр кестеге кемінде 5 тест жазба бар.
+
+### C4 Context
+
+![C4 Context диаграммасы](diagrams/05-c4-context.png)
+
+Жүйемен клиент пен шебер жұмыс істейді. Сыртқы email/SMS қызметі өтінім мәртебесі туралы хабарлама жібереді.
+
+### C4 Container
+
+![C4 Container диаграммасы](diagrams/05-c4-container.png)
+
+Контейнерлер: Responsive Web App, ASP.NET Core API және SQLite дерекқоры. Байланыстар HTTPS/JSON және SQL арқылы жүреді.
 
 

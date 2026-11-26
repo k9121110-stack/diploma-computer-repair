@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-26T00:00:00.000Z" agent="OpenAI Codex" version="24.7.17">
+  <diagram id="05-er" name="05 — ER: Компьютер жөндеу деректері">
+    <mxGraphModel dx="1260" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1260" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="customers" value="&lt;b&gt;customers&lt;/b&gt;&lt;br&gt;PK id INTEGER&lt;br&gt;full_name, phone UNIQUE&lt;br&gt;email, created_at" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="25" y="140" width="230" height="175" as="geometry"/>
+        </mxCell>
+        <mxCell id="devices" value="&lt;b&gt;devices&lt;/b&gt;&lt;br&gt;PK id · FK customer_id&lt;br&gt;device_type, brand, model&lt;br&gt;serial_number" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="310" y="140" width="245" height="175" as="geometry"/>
+        </mxCell>
+        <mxCell id="requests" value="&lt;b&gt;repair_requests&lt;/b&gt;&lt;br&gt;PK id · FK device_id&lt;br&gt;FK technician_id, status_id&lt;br&gt;issue_description, received_at&lt;br&gt;estimated_cost, completed_at" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="610" y="140" width="270" height="205" as="geometry"/>
+        </mxCell>
+        <mxCell id="techs" value="&lt;b&gt;technicians&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;full_name, phone, email&lt;br&gt;is_active" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="110" width="220" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="statuses" value="&lt;b&gt;statuses&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;code UNIQUE, name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="350" width="220" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="history" value="&lt;b&gt;status_history&lt;/b&gt;&lt;br&gt;PK id · FK request_id&lt;br&gt;FK old_status_id, new_status_id&lt;br&gt;changed_at, note" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="610" y="560" width="270" height="175" as="geometry"/>
+        </mxCell>
+        <mxCell id="parts" value="&lt;b&gt;parts&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;sku UNIQUE, name&lt;br&gt;unit_price, stock_quantity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="25" y="560" width="230" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="repairparts" value="&lt;b&gt;repair_parts&lt;/b&gt;&lt;br&gt;PK/FK repair_request_id&lt;br&gt;PK/FK part_id&lt;br&gt;quantity, unit_price" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="310" y="560" width="245" height="165" as="geometry"/>
+        </mxCell>
+        <mxCell id="notifications" value="&lt;b&gt;notifications&lt;/b&gt;&lt;br&gt;PK id · FK repair_request_id&lt;br&gt;FK recipient_customer_id&lt;br&gt;channel, message, sent_at&lt;br&gt;delivery_status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="570" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="customers" target="devices">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="devices" target="requests">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="techs" target="requests">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="statuses" target="requests">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="requests" target="history">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="statuses" target="history">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="requests" target="repairparts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="parts" target="repairparts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="requests" target="notifications">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="customers" target="notifications">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+
