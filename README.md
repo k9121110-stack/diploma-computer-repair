@@ -77,4 +77,21 @@ diploma-computer-repair/
 
 Контейнерлер: Responsive Web App, ASP.NET Core API және SQLite дерекқоры. Байланыстар HTTPS/JSON және SQL арқылы жүреді.
 
+## 6. Интерфейс, жобалау үлгісі және сапа
+
+### Figma прототипі
+
+Figma: [өтінім беру және мәртебені бақылау прототипі](https://www.figma.com/proto/bR5C71Pr3xbABKug32ksed/Computer-Repair-Request---Prototype?node-id=4-10&starting-point-node-id=4%3A10&scaling=scale-down). Экран суреттері `diagrams/ui/` ішінде сақталған. Figma файлында қарау рұқсатын ортақ сілтемесі бар кез келген адамға ашу керек.
+
+![01 — Өтінімді бастау](diagrams/ui/01-login.png)
+
+### State үлгісі
+
+Өтінім күйлерін ауыстыру үлгісі [code/RepairRequestState.cs](code/RepairRequestState.cs) файлында берілген. Class диаграммасына `RepairRequestStateMachine` және `IRepairState` қосылды.
+
+### Тест-кейстер және сапа
+
+- [Интерфейс тест-кейстері](docs/tests.md) — 15 кейс, оның ішінде қате және рұқсатсыз әрекеттер.
+- [SOLID, STRIDE және өнімділік талаптары](docs/quality.md).
+
 

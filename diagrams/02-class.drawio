@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mxfile host="app.diagrams.net" modified="2026-11-26T00:00:00.000Z" agent="OpenAI Codex" version="24.7.17">
-  <diagram id="02-class" name="02 — Class Diagram: Жөндеу өтінімі">
-    <mxGraphModel dx="1450" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1450" pageHeight="800" math="0" shadow="0">
+  <diagram id="02-class-state" name="02 — Class Diagram: State Pattern">
+    <mxGraphModel dx="1450" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1450" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
@@ -29,6 +29,21 @@
         <mxCell id="requestparts" value="&lt;b&gt;RepairPart&lt;/b&gt;&lt;br&gt;PK request_id + part_id&lt;br&gt;quantity, unit_price" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="1060" y="480" width="250" height="155" as="geometry"/>
         </mxCell>
+        <mxCell id="context" value="&lt;b&gt;RepairRequestStateMachine&lt;/b&gt;&lt;br&gt;currentState: IRepairState&lt;br&gt;Advance()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2EF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="590" y="500" width="270" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="istate" value="&lt;b&gt;IRepairState&lt;/b&gt;&lt;br&gt;Name&lt;br&gt;Next()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2EF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="900" y="500" width="205" height="135" as="geometry"/>
+        </mxCell>
+        <mxCell id="newstate" value="NewState" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="430" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="repairing" value="RepairingState" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="540" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="completed" value="CompletedState" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A6B61;fontColor=#1B2B34;fontSize=14;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="650" width="150" height="80" as="geometry"/>
+        </mxCell>
         <mxCell id="e1" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="customers" target="devices">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -48,6 +63,21 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
         <mxCell id="e7" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="parts" target="requestparts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="requests" target="context">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="delegates" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="context" target="istate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="istate" target="newstate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="istate" target="repairing">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E7772;fontSize=12;" edge="1" parent="1" source="istate" target="completed">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
       </root>

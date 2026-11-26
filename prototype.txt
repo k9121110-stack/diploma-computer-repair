@@ -1,0 +1,6 @@
+Computer Repair Request — Figma prototype
+https://www.figma.com/proto/bR5C71Pr3xbABKug32ksed/Computer-Repair-Request---Prototype?node-id=4-10&starting-point-node-id=4%3A10&scaling=scale-down
+
+The prototype contains eight linked screens for the repair-request flow.
+Before submission, set Figma link access to anyone with the link can view.
+
